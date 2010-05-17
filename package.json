@@ -1,0 +1,7 @@
+{
+    "name": "ride",
+    "version": "0.0.0",
+    "description": "In-browser code editor for RingoJS",
+    "keywords": ["editor", "development", "ringo"],
+    "author": "Hannes Wallnöfer (http://henso.com/) <hannes@helma.at>"
+}

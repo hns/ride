@@ -89,6 +89,12 @@
     }
 
     $(function() {
+        var previewUrl = location.href;
+        var ride = previewUrl.indexOf("_ride_");
+        if (ride > -1) {
+            previewUrl = previewUrl.slice(0, ride);
+        }
+        $('#preview-url').val(previewUrl);
         $("#filetree").fileTree({
             root: '/',
             expandSpeed: 100,
@@ -208,7 +214,7 @@
                 <div id="preview-tab">
                   <div style="padding: 1em; background-color: #eee;">
                   <form action="#" onsubmit="return refreshPreview()">
-                      <input id="preview-url" size="60" value="http://localhost:8080/">
+                      <input id="preview-url" size="60" value="">
                       <button type="submit">Refresh</button>
                   </form>
                   </div>

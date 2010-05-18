@@ -22,7 +22,12 @@ of extensions exported in your config.js module:
     ];
 
 After restarting your web application, you should be able to access 
-Ride at `/_ride_/` in your webapp. You may want to define an auth 
-rule for this resource to protect it against unauthorized access.
+Ride at `/_ride_/` in your webapp.
+
+Note that giving someone access to Ride gives them full access to your machine.
+Think twice before installing Ride on a publicly accessible server, and
+definitely use some sort of protection (Ride comes preconfigured with
+[basicauth middleware](http://ringojs.org/api/master/ringo/middleware/basicauth),
+you only have to define an auth role in your main app's `config` module). 
 
 

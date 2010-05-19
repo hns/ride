@@ -1,18 +1,19 @@
 Ride - a Ringo in-browser code editor
 =====================================
 
-Ride is a Ringo [webapp extension][1] that allows editing of the 
-webapp in the browser. 
+Ride is a [Ringo][1] webapp [extension][2] that allows editing of the
+webapp in the browser.
 
-[1]: http://ringojs.org/wiki/Webapp_Extensions
+[1]: http://ringojs.org/
+[2]: http://ringojs.org/wiki/Webapp_Extensions
 
-Ride uses [CodeMirror][2] as editor. You need to fetch CodeMirror 
+Ride uses [CodeMirror][3] as editor. You need to fetch CodeMirror
 using git-submodule:
 
     git submodule init
     git submodule update
 
-[2]: http://marijn.haverbeke.nl/codemirror/
+[3]: http://marijn.haverbeke.nl/codemirror/
 
 To enable Ride in a web application, add `ride/ide` to the list 
 of extensions exported in your config.js module:

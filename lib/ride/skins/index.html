@@ -105,6 +105,7 @@
         });
         $("#tabs").tabs({
             cache: true,
+            tabTemplate: '<li><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
             load: function(event, ui) {
                 if (ui.panel.id != 'preview-tab') {
                     var path = tabs[ui.index];
@@ -157,23 +158,30 @@
                     }); */
                 },
             show: function(event, ui) {
-                    currentEditor = editors[tabs[ui.index]];
-                    resizeIframes();
-                    // editor.editor.doc.body.scrollTop = editor.editor.scrollTop;
-                    if (currentEditor && currentEditor.p) {
-                        var p = currentEditor.p;
-                        currentEditor.selectLines(p[0], p[1], p[2], p[3], currentEditor.editor.scrollTop);
-                        currentEditor.focus();
-                    }
-                },
+                currentEditor = editors[tabs[ui.index]];
+                resizeIframes();
+                // editor.editor.doc.body.scrollTop = editor.editor.scrollTop;
+                if (currentEditor && currentEditor.p) {
+                    var p = currentEditor.p;
+                    currentEditor.selectLines(p[0], p[1], p[2], p[3], currentEditor.editor.scrollTop);
+                    currentEditor.focus();
+                }
+            },
             select: function(event, ui) {
                 if (ui.panel.id == 'preview-tab') {
                     saveAllAndPreview();
                 }
             },
             add: function(event, ui) {
-                    $("#tabs").tabs('select', ui.index);
-                }
+                $("#tabs").tabs('select', ui.index);
+            }
+        });
+        // close editor tab
+        $('#tabs span.ui-icon-close').live('click', function() {
+            var index = $('li', $("#tabs")).index($(this).parent());
+            var removed = tabs.splice(index, 1);
+            delete editors[removed];
+            $("#tabs").tabs('remove', index);
         });
         resizeIframes();
     });
